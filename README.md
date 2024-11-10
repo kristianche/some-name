@@ -321,3 +321,133 @@ public class User
         return result;
     }
 }
+
+#Controller 
+
+using Microsoft.VisualBasic;
+using System;
+using System.Collections.Generic;
+
+public class Controller
+{
+    private Dictionary<string, User> users;
+
+    public Controller()
+    {
+        users = new Dictionary<string, User>();
+    }
+
+    public string AddUser(List<string> args)
+    {
+        string username = args[0];
+        int age = int.Parse(args[1]);
+
+        users[username]  = new User(username, age);
+
+        return $"Created User {username}!";
+    }
+
+    public string AddPlaylist(List<string> args)
+    {
+        string username = args[0];
+        string playlistTitle = args[1];
+
+        User user = users[username];
+
+        user.AddPlaylist(new Playlist(playlistTitle));
+
+        return $"Created Playlist {playlistTitle} for User {username}!";
+    }
+
+    public string AddSongToPlaylist(List<string> args)
+    {
+        string username = args[0];
+        string playlistTitle = args[1];
+        string songTitle = args[2];
+        int duration = int.Parse(args[3]);
+        string artist = args[4];
+        string genre = args[5];
+        string type = args[6];
+
+        if (type == "Single")
+        {
+            DateTime releaseDate = DateTime.Parse(args[7]);
+            Single single = new Single(songTitle, duration, artist, genre, releaseDate);
+            users[username].GetPlaylistByTitle(playlistTitle).AddSong(single);
+
+        }
+        else if (type == "AlbumSong")
+        {
+            string albumName = args[7];
+            AlbumSong albumSong = new AlbumSong(songTitle, duration, artist, genre, albumName);
+            users[username].GetPlaylistByTitle(playlistTitle).AddSong(albumSong);
+        }
+
+        return $"Added song {songTitle} to Playlist {playlistTitle}!";
+
+    }
+
+    public string GetTotalDurationOfPlaylist(List<string> args)
+    {
+        string username = args[0];
+        string playlistTitle = args[1];
+
+        int duration = users[username].GetPlaylistByTitle(playlistTitle).TotalDuration();
+
+        return $"Total duration of {playlistTitle}: {duration} seconds";
+    }
+
+    public string GetSongsByArtistFromPlaylist(List<string> args)
+    {
+        string username = args[0];
+        string playlistTitle = args[1];
+        string artist = args[2];
+        string result = "";
+
+        Playlist playlist = users[username].GetPlaylistByTitle(playlistTitle);
+
+        foreach(Song s in playlist.GetSongsByArtist(artist))
+        {
+            result = result + s.ToString() + "\n";
+        }
+
+        return result;
+
+
+    }
+
+    public string GetSongsByGenreFromPlaylist(List<string> args)
+    {
+        string username = args[0];
+        string playlistTitle = args[1];
+        string genre = args[2];
+        string result = "";
+
+        Playlist playlist = users[username].GetPlaylistByTitle(playlistTitle);
+
+        foreach (Song s in playlist.GetSongsByGenre(genre))
+        {
+            result = result + s.ToString() + "\n";
+        }
+
+        return result;
+    }
+
+    public string GetSongsAboveDurationFromPlaylist(List<string> args)
+    {
+        string username = args[0];
+        string playlistTitle = args[1];
+        int duration = int.Parse(args[2]);
+        string result = "";
+
+        Playlist playlist = users[username].GetPlaylistByTitle(playlistTitle);
+
+
+        foreach (Song s in playlist.GetSongsAboveDuration(duration))
+        {
+            result = result + s.ToString() + "\n";
+        }
+
+        return result;
+    }
+}
