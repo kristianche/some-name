@@ -93,3 +93,39 @@ public abstract class Song
         return result;
     }
 }
+
+
+# Single
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+public class Single : Song
+{
+    private DateTime releaseDate;
+
+    public DateTime ReleaseDate
+    {
+        get
+        {
+            return this.releaseDate;
+        }
+        set
+        {
+            this.releaseDate = value;
+        }
+    }
+
+    public Single(string title, int duration, string artist, string genre, DateTime releaseDate)
+        : base(title, duration, artist, genre)
+    {
+        ReleaseDate = releaseDate;
+    }
+
+    public override string ToString()
+    {
+        string result = base.ToString() + "\n" + $"Release Date: {this.releaseDate}";
+        return result;
+    }
+}
