@@ -451,3 +451,59 @@ public class Controller
         return result;
     }
 }
+ #End
+
+     public string GetSongsByArtistFromPlaylist(List<string> args)
+    {
+        string username = args[0];
+        string playlistTitle = args[1];
+        string artist = args[2];
+        string result = "";
+
+        Playlist playlist = users[username].GetPlaylistByTitle(playlistTitle);
+
+        foreach(Song s in playlist.GetSongsByArtist(artist))
+        {
+            result = result + s.ToString() "\n";
+        }
+
+        return result;
+
+
+    }
+
+    public string GetSongsByGenreFromPlaylist(List<string> args)
+    {
+        string username = args[0];
+        string playlistTitle = args[1];
+        string genre = args[2];
+        string result = "";
+
+        Playlist playlist = users[username].GetPlaylistByTitle(playlistTitle);
+
+        foreach (Song s in playlist.GetSongsByGenre(genre))
+        {
+            result = result + s.ToString() "\n";
+        }
+
+        return result;
+    }
+
+    public string GetSongsAboveDurationFromPlaylist(List<string> args)
+    {
+        string username = args[0];
+        string playlistTitle = args[1];
+        int duration = int.Parse(args[2]);
+        string result = "";
+
+        Playlist playlist = users[username].GetPlaylistByTitle(playlistTitle);
+
+
+        foreach (Song s in playlist.GetSongsAboveDuration(duration))
+        {
+            result = result + s.ToString() + "\n";
+        }
+
+        return result;
+    }
+}
