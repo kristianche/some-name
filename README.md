@@ -679,3 +679,28 @@ namespace ConsoleApp77
 
     }
 }
+#Food
+
+        private string name;
+
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
+        }
+
+        private string type;
+
+        public string Type
+        {
+            get { return this.type; }
+            set { this.type = value; }
+        }
+
+        private double price;
+
+        public double Price
+        {
+            get { return this.price; }
+            set { if (value >= 0) {  this.price = value; } }
+        }
