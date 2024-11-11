@@ -637,3 +637,45 @@ public class Controller
         return result;
     }
 }
+#Home
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp77
+{
+    internal class Home
+    {
+        private string type;
+
+        private int numberOfRooms;
+
+        public int NumberOfRooms
+        {
+            get { return this.numberOfRooms; }
+            set { 
+                if (value >= 0)
+                {
+                    this.numberOfRooms = value;
+                }
+            }
+        }
+
+        private bool hasYard;
+
+        public bool hasYard
+        {
+            get { return this.hasYard; }
+            set { this.hasYard = value;}
+        }
+
+        private double price
+        {
+            get { return this.price; }
+            set { if (price >= 0.0) {  this.price = value; } }
+        }
+
+    }
+}
