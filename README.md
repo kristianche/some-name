@@ -704,3 +704,35 @@ namespace ConsoleApp77
             get { return this.price; }
             set { if (value >= 0) {  this.price = value; } }
         }
+#Time
+public class Time
+{
+    private int hour;
+
+    public int Hour { get => this.hour; set => this.hour = value; }
+
+    private int minute;
+
+    public int Minute { get => this.minute; set => this.minute = value; }
+
+    private int second;
+
+    public int Second { get => this.second; set => this.second = value; }
+
+    private int millisecond;
+
+    public int Millisecond { get => this.millisecond; set => this.millisecond = value; }
+
+    public Time( int hour, int minute, int second, int millisecond)
+    {
+        Hour = hour;
+        Minute = minute;
+        Second = second;
+        Millisecond = millisecond;
+    }
+
+    public override string ToString()
+    {
+        string result = $"{this.hour}:{this.minute}:{this.second}:{this.millisecond}" ;
+        return result;
+    }
