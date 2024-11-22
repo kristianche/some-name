@@ -797,3 +797,30 @@ public class Reseat
         return $"Date: {this.date} Amount: {this.amount} Tax: {this.tax}";
     }
 }
+#Final
+public class Laptop
+{
+    private int ram;
+
+    public int Ram { get => this.ram; set => this.ram = value; }
+
+    private string cpuModel;
+
+    public string CpuModel { get => this.cpuModel; set => this.cpuModel = value; }
+
+    private string gpuModel;
+
+    public string GpuModel { get => this.gpuModel; set => this.gpuModel = value; }
+
+    public Laptop(int ram, string cpuModel, string gpuModel)
+    {
+        Ram = ram;
+        CpuModel = cpuModel;
+        GpuModel = gpuModel;
+    }
+
+    public override string ToString()
+    {
+        return $"Ram: {this.ram} CPU Model: {this.cpuModel} GPU Model: {this.gpuModel}";
+    }
+}
