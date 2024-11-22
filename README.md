@@ -736,3 +736,35 @@ public class Time
         string result = $"{this.hour}:{this.minute}:{this.second}:{this.millisecond}" ;
         return result;
     }
+#Date
+public class Date
+{
+    private int dayOfMonth;
+
+    public int DayOfMonth { get => this.dayOfMonth; set => this.dayOfMonth = value; }
+
+    private string month;
+
+    public string Month { get => this.month; set => this.month = value; }
+
+    private string dayOfWeek;
+
+    public string DayOfWeek { get => this.dayOfWeek; set => this.dayOfWeek = value; }
+
+    private string year;
+
+    public string Year { get => this.year; set => this.year = value; }
+
+    public Date(int dayOfMonth, string month, string dayOfWeek, string year)
+    {
+        DayOfWeek = dayOfWeek;
+        Month = month;
+        DayOfWeek = dayOfWeek;
+        Year = year;
+    }
+
+    public override string ToString()
+    {
+        return $"Day of the week: {this.dayOfMonth}, Day of the month: {this.dayOfMonth}, Month: {this.month}, Year: {this.year}";
+    }
+}
