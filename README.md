@@ -768,3 +768,32 @@ public class Date
         return $"Day of the week: {this.dayOfMonth}, Day of the month: {this.dayOfMonth}, Month: {this.month}, Year: {this.year}";
     }
 }
+
+
+#Reseat
+public class Reseat
+{
+    private Date date;
+
+    public Date Date { get => this.date; set => this.date = value; }
+
+    private double amount;
+
+    public double Amount { get => this.amount; set => this.amount = value; }
+
+    private double tax;
+
+    public double Tax { get => this.tax; set => this.tax = value; }
+
+    public Reseat (Date date, double amount, double tax)
+    {
+        Date = date;
+        Amount = amount;
+        Tax = tax;
+    }
+
+    public override string ToString()
+    {
+        return $"Date: {this.date} Amount: {this.amount} Tax: {this.tax}";
+    }
+}
