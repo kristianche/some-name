@@ -824,3 +824,139 @@ public class Laptop
         return $"Ram: {this.ram} CPU Model: {this.cpuModel} GPU Model: {this.gpuModel}";
     }
 }
+
+using System;
+
+class Math
+{
+    public int sum(int a, int b)
+    {
+        return a + b;
+    }
+    public int sum(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+    public int sum(int a, int b, int c, int d)
+    {
+        return a + b + c + d;
+    }
+    public int sum(int a, int b, int c, int d, int e)
+    {
+        return a + b + c + d + e;
+    }
+    public int product(int a, int b)
+    {
+        return a * b;
+    }
+    public int product(int a, int b, int c)
+    {
+        return a * b * c;
+    }
+    public int product(int a, int b, int c, int d)
+    {
+        return a * b * c * d;
+    }
+    public int product(int a, int b, int c, int d, int e)
+    {
+        return a * b * c * d * e;
+    }
+
+    public void Multiply(int count, string text)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            Console.WriteLine(text);
+        }
+    }
+
+    public void Multiply(int a, int b)
+    {
+        int result = a * b;
+        Console.WriteLine($"Result of multiplication: {result}");
+    }
+
+    public void PrintPermutations(int a, int b)
+    {
+        Console.WriteLine($"{a} {b}");
+        Console.WriteLine($"{b} {a}");
+    }
+
+    public void PrintPermutations(int a, int b, int c)
+    {
+        Console.WriteLine($"{a} {b} {c}");
+        Console.WriteLine($"{a} {c} {b}");
+        Console.WriteLine($"{b} {a} {c}");
+        Console.WriteLine($"{b} {c} {a}");
+        Console.WriteLine($"{c} {a} {b}");
+        Console.WriteLine($"{c} {b} {a}");
+    }
+
+    public void PrintPermutations(int a, int b, int c, int d)
+    {
+        Console.WriteLine($"{a} {b} {c} {d}");
+        Console.WriteLine($"{a} {b} {d} {c}");
+        Console.WriteLine($"{a} {c} {b} {d}");
+        Console.WriteLine($"{a} {c} {d} {b}");
+        Console.WriteLine($"{a} {d} {b} {c}");
+        Console.WriteLine($"{a} {d} {c} {b}");
+
+        Console.WriteLine($"{b} {a} {c} {d}");
+        Console.WriteLine($"{b} {a} {d} {c}");
+        Console.WriteLine($"{b} {c} {a} {d}");
+        Console.WriteLine($"{b} {c} {d} {a}");
+        Console.WriteLine($"{b} {d} {a} {c}");
+        Console.WriteLine($"{b} {d} {c} {a}");
+
+        Console.WriteLine($"{c} {a} {b} {d}");
+        Console.WriteLine($"{c} {a} {d} {b}");
+        Console.WriteLine($"{c} {b} {a} {d}");
+        Console.WriteLine($"{c} {b} {d} {a}");
+        Console.WriteLine($"{c} {d} {a} {b}");
+        Console.WriteLine($"{c} {d} {b} {a}");
+
+        Console.WriteLine($"{d} {a} {b} {c}");
+        Console.WriteLine($"{d} {a} {c} {b}");
+        Console.WriteLine($"{d} {b} {a} {c}");
+        Console.WriteLine($"{d} {b} {c} {a}");
+        Console.WriteLine($"{d} {c} {a} {b}");
+        Console.WriteLine($"{d} {c} {b} {a}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Math math = new Math();
+
+        Console.WriteLine("Sum of 2 numbers: " + math.sum(1, 2));
+        Console.WriteLine("Sum of 3 numbers: " + math.sum(1, 2, 3));
+        Console.WriteLine("Sum of 4 numbers: " + math.sum(1, 2, 3, 4));
+        Console.WriteLine("Sum of 5 numbers: " + math.sum(1, 2, 3, 4, 5));
+
+        Console.WriteLine("Product of 2 numbers: " + math.product(1, 2));
+        Console.WriteLine("Product of 3 numbers: " + math.product(1, 2, 3));
+        Console.WriteLine("Product of 4 numbers: " + math.product(1, 2, 3, 4));
+        Console.WriteLine("Product of 5 numbers: " + math.product(1, 2, 3, 4, 5));
+
+        Console.WriteLine("Calling Multiply(int, string):");
+        math.Multiply(3, "Hello");
+
+        Console.WriteLine("\nCalling Multiply(int, int):");
+        math.Multiply(4, 5);
+
+        Console.WriteLine("Permutations of 2 numbers:");
+        math.PrintPermutations(1, 2);
+
+       
+        Console.WriteLine("\nPermutations of 3 numbers:");
+        math.PrintPermutations(1, 2, 3);
+
+        
+        Console.WriteLine("\nPermutations of 4 numbers:");
+        math.PrintPermutations(1, 2, 3, 4);
+    }
+}
+
+
