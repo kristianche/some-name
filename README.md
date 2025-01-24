@@ -959,4 +959,61 @@ class Program
     }
 }
 
+#TASK
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        HashSet<string> ints = new HashSet<string>();
+        Random random = new Random();
+        while(ints.Count < 4)
+        {
+            ints.Add(random.Next(0, 10).ToString());
+        }
+        string correctNumber = string.Empty;
+        foreach(string s in ints)
+        {
+            correctNumber += s;
+        }
+        Console.WriteLine(correctNumber);
+        bool flag = true;
+        while (flag)
+        {
+            string guess = Console.ReadLine();
+            string result = CheckIfCorrect(correctNumber, guess);
+            Console.WriteLine(result);
+        }
+        
+    }
+
+    public static string CheckIfCorrect(string secretNumber, string guess)
+    {
+        
+        string result = string.Empty;
+        int bullCount = 0;
+        int cowCount = 0;
+        for(int i = 0; i < secretNumber.Length; i++)
+        {
+            if (secretNumber[i] == guess[i])
+            {
+                bullCount++;
+                
+
+            }
+            else if (secretNumber.Contains(guess[i]))
+            {
+                cowCount++;
+            }
+            
+        }
+        result = $"Bulls - {bullCount} : Cows - {cowCount}";
+        if(bullCount == 4)
+        {
+            return "Good job";
+        }
+        return result;
+    }
+    
+}
 
