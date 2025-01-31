@@ -1016,4 +1016,100 @@ internal class Program
     }
     
 }
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp6
+{
+    public abstract class Person
+    {
+        private string name;
+        private int age;
+        public string Name {  get { return name; } set {  name = value; } }
+        public int Age { get { return age;} set { age = value; } }
+
+        public Person(string name, int age)
+        {
+            this.Age = age;
+            this.Name = name;
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp6
+{
+    public class Professor : Person
+    {
+        private int id;
+        private string subject;
+        public int Id { get { return id; } }
+        
+        public string Subject { get { return subject; } set { subject = value; } }
+        public Professor(string name, int age, int id, string subject) : base(name, age)
+        {
+            this.id = id;
+            this.Subject = subject;
+        }
+        public override string ToString()
+        {
+            return $"Name: {this.Name} Age: {this.Age} Id: {this.id} Subject:{this.Subject}";
+        }
+    }
+}
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp6
+{
+    public class Student : Person
+    {
+        private int id;
+        private List<Courses> students;
+        public int Id { get { return id; } }    
+
+        public Student(int id, string name, int age) : base(name, age)
+        {
+            this.id = id;
+            this.students = new List<Courses>();
+        }
+        public void AddCourse(Courses c)
+        {
+            this.students.Add(c);
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp6
+{
+    public class Courses
+    {
+        private string title;
+        private string subject;
+        public string Title {  get { return title; } set { title = value; } }
+        public string Subject { get { return subject; } set { subject = value; } }
+        public Courses(string title, string subject)
+        {
+            this.Title = title;
+            this.Subject = subject;
+        }
+    }
+}
 
