@@ -1113,3 +1113,60 @@ namespace ConsoleApp6
     }
 }
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp21
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] nums = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            Stack<int> stack = new Stack<int>();
+            foreach (int i in nums)
+            {
+                stack.Push(i);
+            }
+            string input = string.Empty;
+            while(input.ToLower() != "end")
+            {
+                input = Console.ReadLine();
+                if(input.ToLower() == "end")
+                {
+                    break;
+                }
+                string[] info = input.Split();
+                switch(info[0].ToLower())
+                {
+                    case "add":
+                        int num = int.Parse(info[1]);
+                        int num2 = int.Parse(info[2]);
+                        stack.Push(num);
+                        stack.Push(num2);
+                        break;
+                    case "remove":
+                        int n = int.Parse(info[1]);
+                        if(stack.Count < n)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            for(int i = 0; i < n; i++)
+                            {
+                                stack.Pop();
+                            }
+                        }
+                        break;
+                }
+                
+            }
+            Console.WriteLine($"Sum: {stack.Sum()}");
+        }
+    }
+}
+
